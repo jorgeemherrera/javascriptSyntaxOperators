@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thrown</title>
+</head>
+<body>
+  <button onclick="throwError();">Thown </button>
+  <script>
+    function throwError() {
+      try {
+        attemptDivision();
+      } catch(error) {
+        console.log(error.message + " - Error Type: " + error.name);
+      }
+    }
+
+    function attemptDivision() {
+      let result;
+
+      try {
+        result = x / 10;
+      } catch (error) {
+        // Always include at least a 'message'  and 'name' properties
+        throw {
+          "message": "In the attemptDivision() method the following error occur",
+          "name": "CustomError"
+        }
+      }
+    }
+  </script>
+</body>
+</html>
